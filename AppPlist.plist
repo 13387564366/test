@@ -14,18 +14,16 @@
 			</dict>
 		</array>
 		<key>metadata</key>
-		<array>
-			<dict>
-				<key>bundle-identifier</key>
-				<string>com.gw.oraleasing.app</string>
-				<key>bundle-version</key>
-				<string>1.0.0</string>
-				<key>kind</key>
-				<string>software</string>
-				<key>title</key>
-				<string>一见启动</string>
-			</dict>
-		</array>
+		<dict>
+			<key>bundle-version</key>
+			<string>1.0.0</string>
+			<key>kind</key>
+			<string>software</string>
+			<key>title</key>
+			<string>一见启动</string>
+			<key>bundle-identifier</key>
+			<string>com.gw.oraleasing.app</string>
+		</dict>
 	</dict>
 </dict>
 </plist>
