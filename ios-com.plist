@@ -12,14 +12,6 @@
 				<key>url</key>
 				<string>https://app.orafl.com/app/webapi/resf/files/downloadApp?devType=ios</string>
 			</dict>
-			<dict>
-				<key>kind</key>
-				<string>display-image</string>
-				<key>need-shine</key>
-				<integer>0</integer>
-				<key>url</key>
-				<string>https://ali-fir-pro-icon.fir.im/4b0ce12ffd98b928ea5ff6fa53899ccd4e60bee2?auth_key=1570595271-0-0-b200d54f4483c3f7ee1d421876705a77&amp;tmp=1570593471.2217023</string>
-			</dict>
 		</array>
 		<key>metadata</key>
 		<array>
