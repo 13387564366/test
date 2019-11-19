@@ -11,13 +11,13 @@
 					<key>kind</key>
 					<string>software-package</string>
 					<key>url</key>
-					<string>https://ret.ap-leasing.com/apzl_leasing/webapi/resf/files/downloadApp?ttt=11111</string>
+					<string>https://app.orafl.com/app/webapi/resf/files/downloadApp?ttt=111</string>
 				</dict>
 			</array>
 			<key>metadata</key>
 			<dict>
 				<key>bundle-identifier</key>
-				<string>cn.com.ap-leasing.app</string>
+				<string>com.gw.oraleasing.app</string>
 				<key>bundle-version</key>
 				<string>1.0</string>
 				<key>kind</key>
@@ -25,7 +25,7 @@
 				<key>subtitle</key>
 				<string>Eleasing</string>
 				<key>title</key>
-				<string>Eleasing</string>
+				<string>一见启动</string>
 			</dict>
 		</dict>
 	</array>
