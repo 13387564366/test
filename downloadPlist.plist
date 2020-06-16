@@ -10,8 +10,6 @@
 				<dict>
 					<key>kind</key>
 					<string>software-package</string>
-					<key>url1</key>
-					<string>https://app.orafl.com/app/webapi/resf/files/downloadApp?devType=ios</string>
 					<key>url</key>
 					<string>https://github.com/13387564366/test/raw/master/EoralLeasing20191009.ipa</string>
 				</dict>
@@ -19,15 +17,15 @@
 			<key>metadata</key>
 			<dict>
 				<key>bundle-identifier</key>
-				<string>com.gw.oraleasing.app</string>
+				<string>com.zjmileasing.mobile.app</string>
 				<key>bundle-version</key>
-				<string>1.9</string>
+				<string>1.0</string>
 				<key>kind</key>
 				<string>software</string>
 				<key>subtitle</key>
-				<string>一见启动</string>
+				<string>物产租赁</string>
 				<key>title</key>
-				<string>一见启动</string>
+				<string>物产租赁</string>
 			</dict>
 		</dict>
 	</array>
