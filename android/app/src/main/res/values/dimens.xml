@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="scanner_activity_button_top_margin">150dp</dimen>
+    <dimen name="scanner_activity_button_middle_distance">30dp</dimen>
+    <dimen name="scanner_activity_section_distance">50dp</dimen>
+    <dimen name="scanner_activity_submit_button_horizontal_distance">20dp</dimen>
+    <dimen name="scanner_activity_scan_result_item_width">280dp</dimen>
+    <dimen name="scanner_activity_scan_result_item_left_fix_text_wrapper_layout_width">100dp</dimen>
+    <dimen name="scanner_activity_scan_result_item_to_manually_horizontal_center_delta">0dp</dimen>
+<!--    <dimen name="scanner_activity_scan_result_item_to_manually_horizontal_center_delta">100dp</dimen>-->
+    <dimen name="scanner_activity_result_item_text_size">15sp</dimen>
+</resources>

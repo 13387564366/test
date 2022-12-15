@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--    主界面navigationbar上的背景色，在android toolbar上也要统一-->
+    <color name="toolbarBackground">#1BA0E5</color>
+    <color name="toolbarLeftArrowColor">#ffffff</color>
+    <color name="white">#ffffff</color>
+
+</resources>

@@ -1,0 +1,20 @@
+<resources>
+
+    <string name="app_name">物产租赁</string>
+    <string name="toolbar_title_for_h5_report">财表</string>
+    <string name="scanner_activity_inventory">盘点</string>
+    <string name="scanner_activity_modify">更改</string>
+    <string name="scanner_activity_discard">报废</string>
+
+    <!--    二维码扫描结果-->
+    <string name="scanner_result_assets_id">资产编码</string>
+    <string name="scanner_result_assets_name">资产名称</string>
+    <string name="scanner_result_assets_specifications">资产型号</string>
+    <string name="scanner_result_assets_department">使用部门</string>
+    <string name="scanner_result_assets_person">使用人员</string>
+    <string name="scanner_result_assets_begin_date">起始日期</string>
+
+    <string name="scanner_spinner_detail_button">详情</string>
+    <string name="scanner_generate_inventory">生成盘点单</string>
+
+</resources>

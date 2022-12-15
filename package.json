@@ -1,0 +1,46 @@
+{
+  "name": "rzzl",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "events": "1.1.1",
+    "flux": "3.1.2",
+    "keymirror": "0.1.1",
+    "react": "15.3.2",
+    "react-native": "0.35.0",
+    "react-native-actionsheet": "^2.4.2",
+    "react-native-chart": "1.0.8-beta",
+    "react-native-check-box": "1.0.4",
+    "react-native-datepicker": "1.5.1",
+    "react-native-device-info": "0.9.7",
+    "react-native-doc-viewer": "2.5.0",
+    "react-native-file-opener": "0.2.0",
+    "react-native-fs": "2.0.1-rc.2",
+    "react-native-gesture-password": "0.2.0",
+    "react-native-image-picker": "0.24.0",
+    "react-native-orientation": "^3.1.3",
+    "react-native-popup-menu": "0.5.8",
+    "react-native-scrollable-tab-view": "0.6.0",
+    "react-native-simple-radio-button": "2.4.0",
+    "react-native-splash-screen": "1.0.9",
+    "react-native-tab-navigator": "0.3.3",
+    "react-native-thumbnail": "^1.1.3",
+    "react-native-vector-icons": "3.0.0"
+  },
+  "jest": {
+    "preset": "jest-react-native"
+  },
+  "devDependencies": {
+    "babel-jest": "16.0.0",
+    "babel-preset-react-native": "1.9.0",
+    "eslint": "3.12.2",
+    "eslint-plugin-react": "6.8.0",
+    "jest": "16.0.2",
+    "jest-react-native": "16.0.0",
+    "react-test-renderer": "15.3.2"
+  }
+}

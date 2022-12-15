@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <!--        android:layout_marginTop="@dimen/scanner_activity_section_distance"-->
+
+    <TextView
+        android:id="@+id/scannerResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginBottom="@dimen/scanner_activity_button_middle_distance"
+        android:gravity="center"
+        android:text="资产信息"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/scanner_activity_scan_result_item_to_manually_horizontal_center_delta">
+
+
+        <!--        1. 资产编码-->
+        <LinearLayout
+            android:id="@+id/scanner_result_assets_id_section"
+            android:layout_width="@dimen/scanner_activity_scan_result_item_width"
+            android:layout_height="wrap_content">
+            <!--                android:layout_width="@dimen/scanner_activity_scan_result_item_width"-->
+
+            <LinearLayout
+                android:id="@+id/assets_id_left_wrapper_layout"
+                android:layout_width="@dimen/scanner_activity_scan_result_item_left_fix_text_wrapper_layout_width"
+                android:layout_height="match_parent">
+                <!--                    android:paddingBottom="10dp"-->
+                <!--                    android:layout_alignParentLeft="true"-->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="left|bottom"
+                    android:text="@string/scanner_result_assets_id"
+                    android:textSize="@dimen/scanner_activity_result_item_text_size" />
+
+            </LinearLayout>
+
+            <!--                <TextView-->
+            <!--                    android:id="@+id/assets_id_left_wrapper_layout"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:gravity="bottom"-->
+            <!--                    android:text="@string/scanner_result_assets_id"-->
+            <!--                    android:layout_alignParentLeft="true"/>-->
+
+            <!--                <TextView-->
+            <!--                    android:id="@+id/scanner_result_assets_id"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_toRightOf="@+id/assets_id_left_wrapper_layout" />-->
+
+            <TextView
+                android:id="@+id/detail_assets_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/scanner_activity_result_item_text_size" />
+            <!--                android:layout_toRightOf="@+id/assets_id_left_wrapper_layout"-->
+            <!--                "-->
+        </LinearLayout>
+
+        <!--        2.资产名称-->
+        <LinearLayout
+            android:id="@+id/scanner_result_assets_name_section"
+            android:layout_width="@dimen/scanner_activity_scan_result_item_width"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/assets_name_left_wrapper_layout"
+                android:layout_width="@dimen/scanner_activity_scan_result_item_left_fix_text_wrapper_layout_width"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true">
+                <!--                    android:paddingBottom="10dp"-->
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="left|bottom"
+                    android:text="@string/scanner_result_assets_name"
+                    android:textSize="@dimen/scanner_activity_result_item_text_size" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/detail_assets_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/assets_name_left_wrapper_layout"
+                android:textSize="@dimen/scanner_activity_result_item_text_size" />
+
+            <!--                <TextView-->
+            <!--                    android:id="@+id/scanner_result_assets_name"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_toRightOf="@+id/assets_name_left_wrapper_layout" />-->
+        </LinearLayout>
+
+        <!--        3.资产规格-->
+        <LinearLayout
+            android:id="@+id/scanner_result_assets_specifications_section"
+            android:layout_width="@dimen/scanner_activity_scan_result_item_width"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/assets_spec_left_wrapper_layout"
+                android:layout_width="@dimen/scanner_activity_scan_result_item_left_fix_text_wrapper_layout_width"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true">
+                <!--                    android:paddingBottom="10dp"-->
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="left|bottom"
+                    android:text="@string/scanner_result_assets_specifications"
+                    android:textSize="@dimen/scanner_activity_result_item_text_size" />
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/detail_assets_specifications"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/assets_spec_left_wrapper_layout"
+                android:textSize="@dimen/scanner_activity_result_item_text_size" />
+
+            <!--                <TextView-->
+            <!--                    android:id="@+id/scanner_result_assets_specifications"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_toRightOf="@+id/assets_spec_left_wrapper_layout" />-->
+        </LinearLayout>
+
+        <!--        4.使用部门-->
+        <LinearLayout
+            android:id="@+id/scanner_result_asset_department_section"
+            android:layout_width="@dimen/scanner_activity_scan_result_item_width"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/assets_department_left_wrapper_layout"
+                android:layout_width="@dimen/scanner_activity_scan_result_item_left_fix_text_wrapper_layout_width"
+
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true">
+                <!--                    android:paddingBottom="10dp"-->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="left|bottom"
+                    android:text="@string/scanner_result_assets_department"
+                    android:textSize="@dimen/scanner_activity_result_item_text_size" />
+            </LinearLayout>
+
+
+            <!--                <TextView-->
+            <!--                    android:id="@+id/scanner_result_department"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_toRightOf="@+id/assets_department_left_wrapper_layout" />-->
+
+            <TextView
+                android:id="@+id/detail_asset_department"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/assets_department_left_wrapper_layout"
+                android:textSize="@dimen/scanner_activity_result_item_text_size" />
+        </LinearLayout>
+
+        <!--        5.使用人员-->
+        <LinearLayout
+            android:id="@+id/scanner_result_assets_person_section"
+            android:layout_width="@dimen/scanner_activity_scan_result_item_width"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/assets_person_left_wrapper_layout"
+                android:layout_width="@dimen/scanner_activity_scan_result_item_left_fix_text_wrapper_layout_width"
+
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true">
+                <!--                    android:paddingBottom="10dp"-->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="left|bottom"
+                    android:text="@string/scanner_result_assets_person"
+                    android:textSize="@dimen/scanner_activity_result_item_text_size" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/detail_assets_person"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/assets_person_left_wrapper_layout"
+                android:textSize="@dimen/scanner_activity_result_item_text_size" />
+
+            <!--                <TextView-->
+            <!--                    android:id="@+id/scanner_result_assets_person"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_toRightOf="@+id/assets_person_left_wrapper_layout" />-->
+        </LinearLayout>
+
+        <!--        6.开始使用时间-->
+        <LinearLayout
+            android:id="@+id/scanner_result_assets_begin_date_section"
+            android:layout_width="@dimen/scanner_activity_scan_result_item_width"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/assets_begin_date_left_wrapper_layout"
+                android:layout_width="@dimen/scanner_activity_scan_result_item_left_fix_text_wrapper_layout_width"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true">
+                <!--                    android:paddingBottom="10dp"-->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="left|bottom"
+                    android:text="@string/scanner_result_assets_begin_date"
+                    android:textSize="@dimen/scanner_activity_result_item_text_size" />
+                <!--                style="@style/scan_result_text_style"-->
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/detail_assets_begin_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/assets_begin_date_left_wrapper_layout"
+                android:textSize="@dimen/scanner_activity_result_item_text_size" />
+
+            <!--                <TextView-->
+            <!--                    android:id="@+id/scanner_result_assets_begin_date"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_toRightOf="@+id/assets_begin_date_left_wrapper_layout" />-->
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>
+

@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    tools:context=".activity.InventoryScannerActivity">
+<!--    下拉菜单-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/scanner_activity_section_distance"
+        >
+        <Spinner
+            android:id="@+id/scanner_activity_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+        <Button
+            android:id="@+id/scanner_activity_spinner_option_detail_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/scanner_spinner_detail_button"
+            android:background="@color/toolbarBackground"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textColor="@color/white"
+
+            />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/cameraButton"
+        android:layout_width="150dp"
+        android:layout_height="37dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/toolbarBackground"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="扫描"
+        android:textColor="@color/white"
+
+
+        />
+<!--    tools:layout_editor_absoluteX="158dp"-->
+<!--    tools:layout_editor_absoluteY="136dp"-->
+    <!--    android:layout_marginTop="@dimen/scanner_activity_button_top_margin"-->
+<!--  从相册中删除  -->
+    <Button
+        android:id="@+id/pickPictureButton"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/scanner_activity_button_middle_distance"
+        android:background="@color/toolbarBackground"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="图片扫描二维码"
+        android:textColor="@color/white"
+        android:visibility="gone"
+      />
+<!--    tools:layout_editor_absoluteX="162dp"-->
+<!--    tools:layout_editor_absoluteY="224dp"-->
+
+<!--下面这部分 扫描结果+三个按钮放到了弹出框中-->
+<!--    <LinearLayout-->
+
+<!--        android:id="@+id/qrScanResultLayout"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:gravity="center"-->
+<!--        android:layout_marginTop="@dimen/scanner_activity_section_distance"-->
+<!--        android:orientation="vertical">-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/scannerResult"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center_vertical"-->
+<!--            android:layout_marginBottom="@dimen/scanner_activity_button_middle_distance"-->
+<!--            android:gravity="center"-->
+<!--            android:textStyle="bold"-->
+<!--            android:text="资产信息" />-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical"-->
+<!--            android:gravity="center"-->
+<!--            android:paddingLeft="@dimen/scanner_activity_scan_result_item_to_manually_horizontal_center_delta">-->
+
+
+<!--            &lt;!&ndash;        1. 资产编码&ndash;&gt;-->
+<!--            <RelativeLayout-->
+<!--                android:id="@+id/scanner_result_assets_id_section"-->
+<!--                android:layout_width="@dimen/scanner_activity_scan_result_item_width"-->
+<!--                android:layout_height="wrap_content">-->
+
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/assets_id_left_wrapper_layout"-->
+<!--                    android:layout_width="@dimen/scanner_activity_scan_result_item_left_fix_text_wrapper_layout_width"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_alignParentLeft="true">-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:gravity="left"-->
+<!--                        android:text="@string/scanner_result_assets_id" />-->
+<!--                </LinearLayout>-->
+
+
+<!--                <TextView-->
+<!--                    android:id="@+id/scanner_result_assets_id"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_toRightOf="@+id/assets_id_left_wrapper_layout" />-->
+<!--            </RelativeLayout>-->
+
+<!--            &lt;!&ndash;        2.资产名称&ndash;&gt;-->
+<!--            <RelativeLayout-->
+<!--                android:id="@+id/scanner_result_assets_name_section"-->
+<!--                android:layout_width="@dimen/scanner_activity_scan_result_item_width"-->
+<!--                android:layout_height="wrap_content">-->
+
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/assets_name_left_wrapper_layout"-->
+<!--                    android:layout_width="@dimen/scanner_activity_scan_result_item_left_fix_text_wrapper_layout_width"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_alignParentLeft="true">-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:gravity="left"-->
+<!--                        android:text="@string/scanner_result_assets_name" />-->
+
+<!--                </LinearLayout>-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/scanner_result_assets_name"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_toRightOf="@+id/assets_name_left_wrapper_layout" />-->
+<!--            </RelativeLayout>-->
+
+<!--            &lt;!&ndash;        3.资产规格&ndash;&gt;-->
+<!--            <RelativeLayout-->
+<!--                android:id="@+id/scanner_result_assets_specifications_section"-->
+<!--                android:layout_width="@dimen/scanner_activity_scan_result_item_width"-->
+<!--                android:layout_height="wrap_content">-->
+
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/assets_spec_left_wrapper_layout"-->
+<!--                    android:layout_width="@dimen/scanner_activity_scan_result_item_left_fix_text_wrapper_layout_width"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_alignParentLeft="true">-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:gravity="left"-->
+<!--                        android:text="@string/scanner_result_assets_specifications" />-->
+<!--                </LinearLayout>-->
+
+
+<!--                <TextView-->
+<!--                    android:id="@+id/scanner_result_assets_specifications"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_toRightOf="@+id/assets_spec_left_wrapper_layout" />-->
+<!--            </RelativeLayout>-->
+
+<!--            &lt;!&ndash;        4.使用部门&ndash;&gt;-->
+<!--            <RelativeLayout-->
+<!--                android:id="@+id/scanner_result_department_section"-->
+<!--                android:layout_width="@dimen/scanner_activity_scan_result_item_width"-->
+<!--                android:layout_height="wrap_content">-->
+
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/assets_department_left_wrapper_layout"-->
+<!--                    android:layout_width="@dimen/scanner_activity_scan_result_item_left_fix_text_wrapper_layout_width"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_alignParentLeft="true">-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:gravity="left"-->
+<!--                        android:text="@string/scanner_result_assets_department" />-->
+<!--                </LinearLayout>-->
+
+
+<!--                <TextView-->
+<!--                    android:id="@+id/scanner_result_department"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_toRightOf="@+id/assets_department_left_wrapper_layout" />-->
+<!--            </RelativeLayout>-->
+
+<!--            &lt;!&ndash;        5.使用人员&ndash;&gt;-->
+<!--            <RelativeLayout-->
+<!--                android:id="@+id/scanner_result_assets_person_section"-->
+<!--                android:layout_width="@dimen/scanner_activity_scan_result_item_width"-->
+<!--                android:layout_height="wrap_content">-->
+
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/assets_person_left_wrapper_layout"-->
+<!--                    android:layout_width="@dimen/scanner_activity_scan_result_item_left_fix_text_wrapper_layout_width"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_alignParentLeft="true">-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:gravity="left"-->
+<!--                        android:text="@string/scanner_result_assets_person" />-->
+<!--                </LinearLayout>-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/scanner_result_assets_person"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_toRightOf="@+id/assets_person_left_wrapper_layout" />-->
+<!--            </RelativeLayout>-->
+
+<!--            &lt;!&ndash;        6.开始使用时间&ndash;&gt;-->
+<!--            <RelativeLayout-->
+<!--                android:id="@+id/scanner_result_assets_begin_date_section"-->
+<!--                android:layout_width="@dimen/scanner_activity_scan_result_item_width"-->
+<!--                android:layout_height="wrap_content">-->
+
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/assets_begin_date_left_wrapper_layout"-->
+<!--                    android:layout_width="@dimen/scanner_activity_scan_result_item_left_fix_text_wrapper_layout_width"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_alignParentLeft="true">-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="@string/scanner_result_assets_begin_date" />-->
+<!--                    &lt;!&ndash;                style="@style/scan_result_text_style"&ndash;&gt;-->
+<!--                </LinearLayout>-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/scanner_result_assets_begin_date"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_toRightOf="@+id/assets_begin_date_left_wrapper_layout" />-->
+<!--            </RelativeLayout>-->
+<!--        </LinearLayout>-->
+
+
+<!--    </LinearLayout>-->
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="@dimen/scanner_activity_section_distance"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:weightSum="3">-->
+
+<!--        <Button-->
+<!--            android:id="@+id/inventoryButton"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="@dimen/scanner_activity_submit_button_horizontal_distance"-->
+<!--            android:layout_marginRight="@dimen/scanner_activity_submit_button_horizontal_distance"-->
+<!--            android:layout_weight="1"-->
+<!--            android:background="@color/toolbarBackground"-->
+<!--            android:text="@string/scanner_activity_inventory"-->
+<!--            android:textColor="@color/white" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/modifyButton"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="@dimen/scanner_activity_submit_button_horizontal_distance"-->
+<!--            android:layout_marginRight="@dimen/scanner_activity_submit_button_horizontal_distance"-->
+<!--            android:layout_weight="1"-->
+<!--            android:background="@color/toolbarBackground"-->
+<!--            android:text="@string/scanner_activity_modify"-->
+<!--            android:textColor="@color/white"-->
+
+<!--            />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/discardButton"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="@dimen/scanner_activity_submit_button_horizontal_distance"-->
+<!--            android:layout_marginRight="@dimen/scanner_activity_submit_button_horizontal_distance"-->
+<!--            android:layout_weight="1"-->
+<!--            android:background="@color/toolbarBackground"-->
+<!--            android:text="@string/scanner_activity_discard"-->
+<!--            android:textColor="@color/white" />-->
+<!--    </LinearLayout>-->
+
+    <Button
+        android:id="@+id/generateInventoryButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/toolbarBackground"
+        android:text="@string/scanner_generate_inventory"
+        android:textColor="@color/white"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/scanner_activity_section_distance"
+        />
+
+</LinearLayout>

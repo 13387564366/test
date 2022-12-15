@@ -1,0 +1,200 @@
+apply plugin: "com.android.application"
+
+import com.android.build.OutputFile
+
+/**
+ * The react.gradle file registers a task for each build variant (e.g. bundleDebugJsAndAssets
+ * and bundleReleaseJsAndAssets).
+ * These basically call `react-native bundle` with the correct arguments during the Android build
+ * cycle. By default, bundleDebugJsAndAssets is skipped, as in debug/dev mode we prefer to load the
+ * bundle directly from the development server. Below you can see all the possible configurations
+ * and their defaults. If you decide to add a configuration block, make sure to add it before the
+ * `apply from: "../../node_modules/react-native/react.gradle"` line.
+ *
+ * project.ext.react = [
+ *   // the name of the generated asset file containing your JS bundle
+ *   bundleAssetName: "index.android.bundle",
+ *
+ *   // the entry file for bundle generation
+ *   entryFile: "index.android.js",
+ *
+ *   // whether to bundle JS and assets in debug mode
+ *   bundleInDebug: false,
+ *
+ *   // whether to bundle JS and assets in release mode
+ *   bundleInRelease: true,
+ *
+ *   // whether to bundle JS and assets in another build variant (if configured).
+ *   // See http://tools.android.com/tech-docs/new-build-system/user-guide#TOC-Build-Variants
+ *   // The configuration property can be in the following formats
+ *   //         'bundleIn${productFlavor}${buildType}'
+ *   //         'bundleIn${buildType}'
+ *   // bundleInFreeDebug: true,
+ *   // bundleInPaidRelease: true,
+ *   // bundleInBeta: true,
+ *
+ *   // the root of your project, i.e. where "package.json" lives
+ *   root: "../../",
+ *
+ *   // where to put the JS bundle asset in debug mode
+ *   jsBundleDirDebug: "$buildDir/intermediates/assets/debug",
+ *
+ *   // where to put the JS bundle asset in release mode
+ *   jsBundleDirRelease: "$buildDir/intermediates/assets/release",
+ *
+ *   // where to put drawable resources / React Native assets, e.g. the ones you use via
+ *   // require('./image.png')), in debug mode
+ *   resourcesDirDebug: "$buildDir/intermediates/res/merged/debug",
+ *
+ *   // where to put drawable resources / React Native assets, e.g. the ones you use via
+ *   // require('./image.png')), in release mode
+ *   resourcesDirRelease: "$buildDir/intermediates/res/merged/release",
+ *
+ *   // by default the gradle tasks are skipped if none of the JS files or assets change; this means
+ *   // that we don't look at files in android/ or ios/ to determine whether the tasks are up to
+ *   // date; if you have any other folders that you want to ignore for performance reasons (gradle
+ *   // indexes the entire tree), add them here. Alternatively, if you have JS files in android/
+ *   // for example, you might want to remove it from here.
+ *   inputExcludes: ["android/**", "ios/**"],
+ *
+ *   // override which node gets called and with what additional arguments
+ *   nodeExecutableAndArgs: ["node"]
+ *
+ *   // supply additional arguments to the packager
+ *   extraPackagerArgs: []
+ * ]
+ */
+
+apply from: "../../node_modules/react-native/react.gradle"
+
+/**
+ * Set this to true to create two separate APKs instead of one:
+ *   - An APK that only works on ARM devices
+ *   - An APK that only works on x86 devices
+ * The advantage is the size of the APK is reduced by about 4MB.
+ * Upload all the APKs to the Play Store and people will download
+ * the correct one based on the CPU architecture of their device.
+ */
+def enableSeparateBuildPerCPUArchitecture = false
+
+/**
+ * Run Proguard to shrink the Java bytecode in release builds.
+ */
+def enableProguardInReleaseBuilds = false
+
+android {
+    compileSdkVersion 23
+//    buildToolsVersion "23.0.1"
+//    buildToolsVersion "23.0.2"
+    buildToolsVersion "25.0.0"
+
+    defaultConfig {
+        applicationId "com.zjmileasing.app"
+        minSdkVersion 16   //之前是16
+        targetSdkVersion 23
+//      yhf 下面这个因为服务器升级，升级提示下载，但又安装不了，下载的是以前工程师打包的，我打包的就安装不了，所以我把这个 从2改成3，从1.1.2改成1.1.3
+        versionCode 11
+        versionName "1.1.11"
+        ndk {
+            abiFilters "armeabi-v7a", "x86"
+        }
+    }
+    splits {
+        abi {
+            reset()
+            enable enableSeparateBuildPerCPUArchitecture
+            universalApk false  // If true, also generate a universal APK
+            include "armeabi-v7a", "x86"
+        }
+    }
+
+     signingConfigs {
+                release {
+//                    /Users/ianye/outsideProjects/rzzlGitProject/rzdp/android/outrzzl.keystore
+                    storeFile file(MYAPP_RELEASE_STORE_FILE)
+//                    storeFile file('/Users/ianye/outsideProjects/rzzlGitProject/rzdp/android/rzzl.keystore')
+                    storePassword MYAPP_RELEASE_STORE_PASSWORD
+                    keyAlias MYAPP_RELEASE_KEY_ALIAS
+                    keyPassword MYAPP_RELEASE_KEY_PASSWORD
+
+//                    if (project.hasProperty('MYAPP_RELEASE_STORE_FILE')) {
+//
+//                        storeFile file("D:/vueProject/projectTest/android/app/my-release-key.keystore")
+//
+//                        storePassword "你的storePassword"
+//
+//                        keyAlias "你的keyAlias "
+//
+//                        keyPassword "你的keyPassword "
+//
+//                    }
+                }
+            }
+
+    buildTypes {
+        release {
+            minifyEnabled enableProguardInReleaseBuilds
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            signingConfig signingConfigs.release
+        }
+    }
+
+
+    // applicationVariants are e.g. debug, release
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            // For each separate APK per architecture, set a unique version code as described here:
+            // http://tools.android.com/tech-docs/new-build-system/user-guide/apk-splits
+            def versionCodes = ["armeabi-v7a":1, "x86":2]
+            def abi = output.getFilter(OutputFile.ABI)
+            if (abi != null) {  // null for the universal-debug, universal-release variants
+                output.versionCodeOverride =
+                        versionCodes.get(abi) * 1048576 + defaultConfig.versionCode
+            }
+        }
+    }
+    // configurations.all {
+// OkHttp 3.5.0+ includes the websockets API, so we need this to prevent a conflict
+//        exclude module: 'okhttp-ws'
+    // }
+}
+
+dependencies {
+    compile project(':react-native-thumbnail')
+    compile project(':react-native-orientation')
+    compile project(':react-native-doc-viewer')
+    compile project(':react-native-splash-screen')
+    compile project(':react-native-image-picker')
+    compile project(':react-native-vector-icons')
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile files('libs/MiPush_SDK_Client_3_1_2.jar')
+//    compile 'com.android.support:appcompat-v7:23.0.1'
+    compile 'com.facebook.react:react-native:+'
+    // From node_modules
+    compile project(':react-native-device-info')
+    compile project(':react-native-fs')
+    compile project(':react-native-file-opener')
+//    compile 'cn.yipianfengye.android:zxing-library:2.2'
+//    compile 'com.king.zxing:zxing-lite:1.1.3'
+
+    compile 'com.google.zxing:core:3.3.3'
+    compile 'com.android.support:appcompat-v7:23.1.0'
+//    compile 'com.android.support:appcompat-v7:28.0.0'
+    compile 'com.journeyapps:zxing-android-embedded:3.5.0'
+
+//    for okhttp request
+    compile 'com.squareup.okhttp3:okhttp:3.2.0'
+    compile 'com.squareup.okio:okio:1.7.0'
+//    compile 'com.android.support.constraint:constraint-layout:1.1.3'
+//    compile files('libs/zxing-android-embedded/3.5.0/2b2382977c77bd91f84dd2d306d64183e751c48c/zxing-android-embedded-3.5.0-sources.jar')
+//    compile 'com.king.zxing:zxing-lite:1.1.7-androidx'
+//    compile 'cn.yipianfengye.android:zxing-library:2.2'
+//    compile 'com.android.support.constraint:constraint-layout:1.1.3'
+}
+
+// Run this once to be able to run the application with BUCK
+// puts all compile dependencies into folder libs for BUCK to use
+task copyDownloadableDepsToLibs(type: Copy) {
+  from configurations.compile
+  into 'libs'
+}
